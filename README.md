@@ -1,4 +1,5 @@
 # Equalizer Layout
+### Version: 1.0.1
 
 Create a custom layout which can be expanded and collapsed easily!
 
@@ -42,7 +43,7 @@ equalizerLayout.collapse();
 ```
 ### Gradle
 ```
-compile 'com.coffeebreakcodes.equalizerlayout:equalizer-layout:1.0'
+compile 'com.coffeebreakcodes.equalizerlayout:equalizer-layout:1.0.1'
 ```
 
 # License
