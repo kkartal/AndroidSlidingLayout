@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">EqualizerLayout</string>
+    <string name="error_invalid_direction">"Invalid Direction! It should be SlidingCase.SLIDING_UP,SlidingCase.SLIDING_DOWN,SlidingCase.SLIDING_RIGHT,SlidingCase.SLIDING_LEFT."</string>
+</resources>

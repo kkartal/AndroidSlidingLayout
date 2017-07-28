@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.coffeebreakcodes.equalizerlayout.EqualizerLayout
+        android:id="@+id/equalizerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">
+
+    </com.coffeebreakcodes.equalizerlayout.EqualizerLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/buttonToggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="auto" />
+
+        <Button
+            android:id="@+id/buttonEx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Expand" />
+
+        <Button
+            android:id="@+id/buttonCol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Collapse" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
