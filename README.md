@@ -27,7 +27,7 @@ And define status if you want layout to be expanded at start or not:
 ```
 equalizerLayout.setExpandedAtStart(true);
 ```
-Also you can turn on/off the swipe listener or onClick listener:
+Also you can turn on/off the Swipe Listener or Click Listener:
 ```
 equalizerLayout.hasSwipeListener(true);
 ```
