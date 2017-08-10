@@ -2,7 +2,12 @@ package com.coffeebreakcodes.equalizerlayout;
 
 
 import android.content.Context;
+import android.graphics.Path;
+import android.support.v4.view.GestureDetectorCompat;
 import android.util.AttributeSet;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.RelativeLayout;
 
 /**
@@ -10,8 +15,6 @@ import android.widget.RelativeLayout;
  */
 
 public class EqualizerLayout extends RelativeLayout {
-
-    private final String TAG = "SlidingLayoutError";
 
     private boolean isExpanded = true;
     private float duration = 300;
@@ -22,25 +25,28 @@ public class EqualizerLayout extends RelativeLayout {
 
     private StatusListener statusListener;
 
+    private float dx;
+    private float dy;
+    private float x1;
+    private float x2;
+    private float y1;
+    private float y2;
 
     private String orientation;
 
     public EqualizerLayout(Context context) {
         super(context);
         this.context = context;
-        initSwipeListener();
     }
 
     public EqualizerLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
-        initSwipeListener();
     }
 
     public EqualizerLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.context = context;
-        initSwipeListener();
     }
 
     public boolean isExpanded() {
@@ -125,40 +131,108 @@ public class EqualizerLayout extends RelativeLayout {
         }
     }
 
-    private void initSwipeListener() {
-        this.setOnTouchListener(new OnSwipeTouchListener(context) {
-            public void onSwipeTop() {
-                if (direction == 1 || direction == 2) {
+    public void hasSwipeListener(boolean isSwipeEnabled) {
+        if (isSwipeEnabled) {
+            this.setOnTouchListener(new OnTouchListener() {
+                @Override
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    switch (motionEvent.getAction()) {
+                        case MotionEvent.ACTION_DOWN:
+                            x1 = view.getX();
+                            y1 = view.getY();
+                            if (direction == SlidingCase.EXPAND_DOWN ||
+                                    direction == SlidingCase.EXPAND_UP) {
+                                dy = view.getY() - motionEvent.getRawY();
+                            } else {
+                                dx = view.getX() - motionEvent.getRawX();
+                            }
+                            break;
+
+                        case MotionEvent.ACTION_MOVE:
+                            if (direction == SlidingCase.EXPAND_DOWN ||
+                                    direction == SlidingCase.EXPAND_UP) {
+                                if (Math.abs(getTranslationY()) >=
+                                        Math.abs(EqualizerUtil.getExpandValue(
+                                                EqualizerLayout.this)) &&
+                                        Math.abs(getTranslationY()) <=
+                                                Math.abs(EqualizerUtil.getCollapseValue(
+                                                        EqualizerLayout.this))) {
+                                    view.animate()
+                                            .y(motionEvent.getRawY() + dy)
+                                            .setDuration(0)
+                                            .start();
+                                }
+
+                            } else {
+                                if (Math.abs(getTranslationX()) >=
+                                        Math.abs(EqualizerUtil.getExpandValue(
+                                                EqualizerLayout.this)) &&
+                                        Math.abs(getTranslationX()) <=
+                                                Math.abs(EqualizerUtil.getCollapseValue(
+                                                        EqualizerLayout.this))) {
+                                    view.animate()
+                                            .x(motionEvent.getRawX() + dx)
+                                            .setDuration(0)
+                                            .start();
+                                }
+
+                            }
+                            break;
+
+                        case MotionEvent.ACTION_UP:
+                            x2 = view.getX();
+                            y2 = view.getY();
+
+                            float deltaX = x1 - x2;
+                            float deltaY = y1 - y2;
+
+                            if (direction == SlidingCase.EXPAND_DOWN ||
+                                    direction == SlidingCase.EXPAND_UP) {
+                                if (deltaY > 0) {
+                                    if (direction == SlidingCase.EXPAND_UP) {
+                                        expand();
+                                    } else {
+                                        collapse();
+                                    }
+                                } else {
+                                    if (direction == SlidingCase.EXPAND_UP) {
+                                        collapse();
+                                    } else {
+                                        expand();
+                                    }
+                                }
+
+                            } else {
+                                if (deltaX > 0) {
+                                    if (direction == SlidingCase.EXPAND_LEFT) {
+                                        expand();
+                                    } else {
+                                        collapse();
+                                    }
+                                } else {
+                                    if (direction == SlidingCase.EXPAND_LEFT) {
+                                        collapse();
+                                    } else {
+                                        expand();
+                                    }
+                                }
+                            }
+                            return true;
+
+                        default:
+                            return false;
+                    }
+                    return true;
+                }
+            });
+        } else {
+            this.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
                     autoToggle();
                 }
-            }
-
-            public void onSwipeRight() {
-                if (direction == 3 || direction == 4) {
-                    autoToggle();
-                }
-            }
-
-            public void onSwipeLeft() {
-                if (direction == 3 || direction == 4) {
-                    autoToggle();
-                }
-            }
-
-            public void onSwipeBottom() {
-                if (direction == 1 || direction == 2) {
-                    autoToggle();
-                }
-            }
-
-        });
-//
-//        this.setOnClickListener(new OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                autoToggle();
-//            }
-//        });
+            });
+        }
     }
 }
 

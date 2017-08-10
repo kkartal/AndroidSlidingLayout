@@ -33,7 +33,7 @@ public class EqualizerUtil {
     }
 
     static void getCollapsed(final EqualizerLayout equalizerLayout) {
-        if (equalizerLayout.isExpanded()) {
+//        if (equalizerLayout.isExpanded()) {
             equalizerLayout.post(new Runnable() {
                 @Override
                 public void run() {
@@ -46,11 +46,11 @@ public class EqualizerUtil {
 
                 }
             });
-        }
+//        }
     }
 
     static void getExpand(final EqualizerLayout equalizerLayout) {
-        if (!equalizerLayout.isExpanded()) {
+//        if (!equalizerLayout.isExpanded()) {
             equalizerLayout.post(new Runnable() {
                 @Override
                 public void run() {
@@ -62,7 +62,7 @@ public class EqualizerUtil {
                 }
             });
 
-        }
+//        }
     }
 
     static void manuelCollapse(final EqualizerLayout equalizerLayout) {

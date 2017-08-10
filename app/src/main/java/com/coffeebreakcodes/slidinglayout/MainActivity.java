@@ -21,9 +21,10 @@ public class MainActivity extends AppCompatActivity {
         equalizerLayout = (EqualizerLayout) findViewById(R.id.equalizerLayout);
 
         equalizerLayout.setDirection(SlidingCase.EXPAND_DOWN);
-        equalizerLayout.setMinSize(100f);
-        equalizerLayout.setMaxSize(300f);
+        equalizerLayout.setMinSize(200f);
+        equalizerLayout.setMaxSize(800f);
         equalizerLayout.setExpandedAtStart(true);
+        equalizerLayout.hasSwipeListener(true);
         equalizerLayout.setStatusListener(new StatusListener() {
             @Override
             public void status(boolean isExpanded) {
