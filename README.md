@@ -50,9 +50,11 @@ equalizerLayout.collapse();
 compile 'com.coffeebreakcodes.equalizerlayout:equalizer-layout:1.1.0'
 ```
 ### Version History
-1.0    Origin
-1.0.1  Bugfix
-1.1.0  Swipe & Click Listeners
+1.0 Origin
+
+1.0.1 Bugfix
+
+1.1.0 Swipe & Click Listeners
 
 # License
 
