@@ -1,20 +1,20 @@
 # Equalizer Layout
-### Version: 1.0.1
+### Version: 1.1.0
 
 Create a custom layout which can be expanded and collapsed easily!
 
 ## Sample Usage
-Set directions with
+Set directions with:
 ```
 //EXPAND_DOWN, EXPAND_UP, EXPAND_RIGHT, EXPAND_LEFT
 equalizerLayout.setDirection(SlidingCase.EXPAND_DOWN);
 ```
-Collapsed size(minSize) and Expanded size(maxSize)
+Collapsed size(minSize) and Expanded size(maxSize).
 ```
 equalizerLayout.setMinSize(100f);
 equalizerLayout.setMaxSize(300f);
 ```
-You can add a listener to handle if the layout is collapsed or expanded
+You can add a listener to handle if the layout is collapsed or expanded:
 ```
 equalizerLayout.setStatusListener(new StatusListener() {
     @Override
@@ -23,9 +23,13 @@ equalizerLayout.setStatusListener(new StatusListener() {
     }
 });
 ```
-And define status if you want layout to be expanded at start or not
+And define status if you want layout to be expanded at start or not:
 ```
 equalizerLayout.setExpandedAtStart(true);
+```
+Also you can turn on/off the swipe listener or onClick listener:
+```
+equalizerLayout.hasSwipeListener(true);
 ```
 
 ### Simple Controllers
@@ -43,8 +47,12 @@ equalizerLayout.collapse();
 ```
 ### Gradle
 ```
-compile 'com.coffeebreakcodes.equalizerlayout:equalizer-layout:1.0.1'
+compile 'com.coffeebreakcodes.equalizerlayout:equalizer-layout:1.1.0'
 ```
+### Version History
+1.0    Origin
+1.0.1  Bugfix
+1.1.0  Swipe & Click Listeners
 
 # License
 
