@@ -3,7 +3,7 @@ apply plugin: 'com.android.library'
 ext {
     PUBLISH_GROUP_ID = "com.coffeebreakcodes.equalizerlayout"
     PUBLISH_ARTIFACT_ID = "equalizer-layout"
-    PUBLISH_VERSION = "1.0.1"
+    PUBLISH_VERSION = "1.1.0"
 }
 
 android {
