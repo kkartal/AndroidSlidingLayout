@@ -31,6 +31,32 @@ Also you can turn on/off the Swipe Listener or Click Listener:
 ```
 equalizerLayout.hasSwipeListener(true);
 ```
+## View Group
+Layout:
+```
+ <com.coffeebreakcodes.slidinglayout.SlidingGroupLayout
+        android:id="@+id/slidingGroupLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:independent_layouts="true">
+ </com.coffeebreakcodes.slidinglayout.SlidingGroupLayout>
+```
+**Independent Layouts:**
+If you want to expand the rest of all layouts when you collapse any SlidingLayout, use ```app:independent_layouts="false"```
+
+**Caution:** Using *statusListener* overrides *independent_layouts* attribute.
+Please use *expandOthers* for setting the listener and using the dependency at the same time.
+```
+ slidingLayout.setStatusListener(new StatusListener() {
+            @Override
+            public void status(boolean isExpanded) {
+                slidingGroupLayout.expandOthers(slidingLayout, isExpanded);
+            }
+        });
+```
+
+
+
 
 ### Simple Controllers
 ```
@@ -47,14 +73,8 @@ equalizerLayout.collapse();
 ```
 ### Gradle
 ```
-compile 'com.coffeebreakcodes.equalizerlayout:equalizer-layout:1.1.0'
+compile 'com.coffeebreakcodes.slidinglayout:sliding-layout:2.0.0'
 ```
-### Version History
-1.0 Origin
-
-1.0.1 Bugfix
-
-1.1.0 Swipe & Click Listeners
 
 # License
 
