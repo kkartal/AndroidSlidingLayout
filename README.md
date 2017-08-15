@@ -1,5 +1,5 @@
 # Equalizer Layout
-### Version: 1.1.0
+### Version: 2.0.0
 
 Create a custom layout which can be expanded and collapsed easily!
 
