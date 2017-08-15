@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SlidingLayout3.iml" filepath="$PROJECT_DIR$/SlidingLayout3.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/equalizerlayout/equalizerlayout.iml" filepath="$PROJECT_DIR$/equalizerlayout/equalizerlayout.iml" />
+      <module fileurl="file://$PROJECT_DIR$/slidinglayout/slidinglayout.iml" filepath="$PROJECT_DIR$/slidinglayout/slidinglayout.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testapp/testapp.iml" filepath="$PROJECT_DIR$/testapp/testapp.iml" />
     </modules>
   </component>
 </project>

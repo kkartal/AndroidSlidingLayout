@@ -1,1 +1,1 @@
-include ':app', ':equalizerlayout'
+include ':testapp', ':slidinglayout'

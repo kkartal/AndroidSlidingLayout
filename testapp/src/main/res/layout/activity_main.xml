@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.coffeebreakcodes.slidinglayout.SlidingGroupLayout
+        android:id="@+id/slidingGroupLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:independent_layouts="true">
+
+            <LinearLayout
+                android:layout_weight=".5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.coffeebreakcodes.slidinglayout.SlidingLayout
+                    android:layout_weight=".5"
+                    android:id="@+id/slidingLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimary"/>
+
+                <com.coffeebreakcodes.slidinglayout.SlidingLayout
+                    android:layout_weight=".5"
+                    android:id="@+id/slidingLayout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorAccent"/>
+
+            </LinearLayout>
+
+    </com.coffeebreakcodes.slidinglayout.SlidingGroupLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/buttonToggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="auto" />
+
+        <Button
+            android:id="@+id/buttonEx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Expand" />
+
+        <Button
+            android:id="@+id/buttonCol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Collapse" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
