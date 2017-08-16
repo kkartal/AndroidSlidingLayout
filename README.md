@@ -1,4 +1,4 @@
-# Equalizer Layout
+# Sliding Layout
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16) 
 ### Version: 2.0.0
 
@@ -102,7 +102,7 @@ compile 'com.coffeebreakcodes.slidinglayout:sliding-layout:2.0.0'
 
 # License
 
-Copyright 2017 [Kagan Kartal](https://www.linkedin.com/in/kkartal/)
+Copyright 2017 Kagan Kartal
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
