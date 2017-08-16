@@ -6,18 +6,18 @@ Create a custom layout which can be expanded and collapsed easily!
 
 ## Sample Usage
 Set directions with:
-```
+```java
 //EXPAND_DOWN, EXPAND_UP, EXPAND_RIGHT, EXPAND_LEFT
-equalizerLayout.setDirection(SlidingCase.EXPAND_DOWN);
+slidingLayout.setDirection(SlidingCase.EXPAND_DOWN);
 ```
 Collapsed size(minSize) and Expanded size(maxSize).
-```
-equalizerLayout.setMinSize(100f);
-equalizerLayout.setMaxSize(300f);
+```java
+slidingLayout.setMinSize(100f);
+slidingLayout.setMaxSize(300f);
 ```
 You can add a listener to handle if the layout is collapsed or expanded:
-```
-equalizerLayout.setStatusListener(new StatusListener() {
+```java
+slidingLayout.setStatusListener(new StatusListener() {
     @Override
     public void status(boolean isExpanded) {
         //your code
@@ -25,29 +25,50 @@ equalizerLayout.setStatusListener(new StatusListener() {
 });
 ```
 And define status if you want layout to be expanded at start or not:
-```
-equalizerLayout.setExpandedAtStart(true);
+```java
+slidingLayout.setExpandedAtStart(true);
 ```
 Also you can turn on/off the Swipe Listener or Click Listener:
-```
-equalizerLayout.hasSwipeListener(true);
+```java
+slidingLayout.hasSwipeListener(true);
 ```
 ## View Group
 Layout:
-```
+```xml
  <com.coffeebreakcodes.slidinglayout.SlidingGroupLayout
         android:id="@+id/slidingGroupLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:independent_layouts="true">
- </com.coffeebreakcodes.slidinglayout.SlidingGroupLayout>
+        app:independent_layouts="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.coffeebreakcodes.slidinglayout.SlidingLayout
+                    android:layout_weight=".5"
+                    android:id="@+id/slidingLayoutTop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimary"/>
+
+                <com.coffeebreakcodes.slidinglayout.SlidingLayout
+                    android:layout_weight=".5"
+                    android:id="@+id/slidingLayoutBottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorAccent"/>
+
+            </LinearLayout>
+    </com.coffeebreakcodes.slidinglayout.SlidingGroupLayout>
 ```
 **Independent Layouts:**
 If you want to expand the rest of all layouts when you collapse any SlidingLayout, use ```app:independent_layouts="false"```
 
 **Caution:** Using *statusListener* overrides *independent_layouts* attribute.
 Please use *expandOthers* for setting the listener and using the dependency at the same time.
-```
+```java
  slidingLayout.setStatusListener(new StatusListener() {
             @Override
             public void status(boolean isExpanded) {
@@ -60,15 +81,15 @@ Please use *expandOthers* for setting the listener and using the dependency at t
 
 
 ### Simple Controllers
+```java
+slidingLayout.autoToggle();
+slidingLayout.expand();
+slidingLayout.collapse();
 ```
-equalizerLayout.autoToggle();
-equalizerLayout.expand();
-equalizerLayout.collapse();
-```
-### Sample Layout
-```
-<com.coffeebreakcodes.equalizerlayout.EqualizerLayout
-        android:id="@+id/equalizerlayout"
+### Single Layout
+```xml
+<com.coffeebreakcodes.slidinglayout.SlidingLayout
+        android:id="@+id/slidingLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 ```
